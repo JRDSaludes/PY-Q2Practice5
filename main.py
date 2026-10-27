@@ -1,9 +1,19 @@
-from pyscript import document,display
+from pyscript import document
 
+def check_country(e):
+    country = {
+        "ph": "Philippines",
+        "au": "Australia",
+        "jp": "Japan",
+        "fr": "France",
+        "sg": "Singapore",
+    }
 
-x = "This is an editable copy. Use this environment every time we have discussions for our demo."
+    country_code = document.getElementById("countries").value.lower().strip()
 
+    document.getElementById("output1").innerText = country.get(country_code, "Country code not found")
 
+    #add a country
+    country["us"] = "United States"
 
-
-display(x, target="output1")
+    document.getElementById("output2").innerText = country.get("us", "Country code not found")
